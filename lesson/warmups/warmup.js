@@ -29,10 +29,10 @@ comparisonsButton.addEventListener("click", function() {
   // YOUR TURN: Predict what these will log, then uncomment to check
   // ============================================================
 
-  // console.log("15 >= 15 is:", 15 >= 15);
-  // console.log("3 <= 2 is:", 3 <= 2);
-  // console.log("'hello' === 'hello' is:", "hello" === "hello");
-  // console.log("100 > 99 is:", 100 > 99);
+  console.log("15 >= 15 is:", 15 >= 15); // true
+  console.log("3 <= 2 is:", 3 <= 2); // false
+  console.log("'hello' === 'hello' is:", "hello" === "hello"); // true
+  console.log("100 > 99 is:", 100 > 99); // true
 
 });
 
@@ -64,6 +64,13 @@ checkBigButton.addEventListener("click", function() {
   // Hint: You'll need if / else if / else
   // ============================================================
 
+  if(userNumber >= 50){
+    alert("That's a BIG number");
+  } else if(userNumber >= 10){
+    alert("That's a Medium number");
+  } else{
+    alert("That's a tiny number!");
+  }
 });
 
 
@@ -101,9 +108,9 @@ checkGradeButton.addEventListener("click", function() {
     grade = "A";
   } else {
     grade = "F";
-  }
+  } 
   */
-
+  
   // ============================================================
   // WE DO TOGETHER - THE FIX!
   // ============================================================
@@ -114,7 +121,6 @@ checkGradeButton.addEventListener("click", function() {
   // uncomment this fixed version:
   // ------------------------------------------------------------
 
-  /*
   if (score >= 90) {
     grade = "A";
   } else if (score >= 80) {
@@ -126,7 +132,6 @@ checkGradeButton.addEventListener("click", function() {
   } else {
     grade = "F";
   }
-  */
 
   gradeResult.innerHTML = `Score: ${score} &rarr; Grade: ${grade}`;
 
@@ -140,6 +145,16 @@ checkGradeButton.addEventListener("click", function() {
   // - Below 50: "Cold!"
   //
   // Log the result to the console. Remember to order high to low!
+
+  if(temp >= 90){
+    console.log("HOT!");
+  } else if(temp >=70){
+    console.log("Nice!");
+  } else if(temp >= 50){
+    console.log("Cool!");
+  } else{
+    console.log("Cold!");
+  }
 
 });
 
@@ -171,7 +186,12 @@ checkRangeButton.addEventListener("click", function() {
   // number is EITHER very low (under 10) OR very high (over 90)
   //
   // Hint: Use || for "or"
-  // Example: if (num < 10 || num > 90) { ... }
+  
+  if (num < 10 || num > 90) {
+    alert("Number is an outliner!")
+  }
+
+
 
 });
 
@@ -197,6 +217,21 @@ generateRandomButton.addEventListener("click", function() {
 
   let secretNumber = Math.floor(Math.random() * 100) + 1;
 
+  // let isInRange; 
+
+  if(secretNumber < 30 && secretNumber > 10){
+    isInRange = "Your number is in range!";
+  } else{
+    isInRange = "Your number is not in range!";
+  }
+ /* Extra
+  let isInRange = secretNumber < 30 && secretNumber > 10 
+  ? "Your number is in range!"
+  : "Your number is not in range!";
+  */
+
+  console.log("Is in range: ", isInRange);
+
   randomResult.innerHTML = `Random number: ${secretNumber}`;
   console.log("Generated:", secretNumber);
 
@@ -209,5 +244,9 @@ generateRandomButton.addEventListener("click", function() {
   //
   // The formula is: Math.floor(Math.random() * MAX) + 1
   // Log your results to the console!
+  let num1 = Math.floor(Math.random() * 10) +1;
+  console.log(num1);
 
+   let num2 = Math.floor(Math.random() * 6) +1;
+   console.log(num2);
 });

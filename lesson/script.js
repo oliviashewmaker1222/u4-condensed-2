@@ -44,6 +44,19 @@ let guessCount = 0;
 // 2. Convert it to a number
 // 3. Check if it's correct
 
+let historyUl = document.querySelector('#history');
+
+let gameWon = false;
+
+function createHistory(guess, guessClass){
+  
+  let guessLi = document.createElement("li");
+  guessLi.classList.toggle(guessClass);
+  guessLi.innerHTML = guess;
+
+  historyUl.appendChild(guessLi);
+}
+
 submitButton.addEventListener("click", function() {
 
   // Read the input and convert to a number
@@ -52,16 +65,64 @@ submitButton.addEventListener("click", function() {
   // Log it so we can see what we're working with
   console.log("Player guessed:", guess);
 
+  guessCount++;
+  document.querySelector("#final-count").innerHTML = guessCount;
+  countDisplay.innerHTML = guessCount;
+
+  if (gameWon) {
+    feedback.innerHTML = "You already won! Click 'New Game' to play again.";
+    return;
+  }
 
   // **********************************************************
   // WE DO TOGETHER - Part 3: The win case
   // **********************************************************
   // Let's write the WINNING case first!
 
-  if (guess === secretNumber) {
+  if (guess < 1 || guess > 100 || isNaN(guess)) {
+    feedback.innerHTML = "Please enter a number between 1 and 100!";
+  } else if (guess === secretNumber) {
     feedback.innerHTML = "Correct! You got it!";
     console.log("WINNER!");
+    document.querySelector("#win-panel").classList.toggle("hidden");
+    document.querySelector("#answer").innerHTML = secretNumber;
+    gameWon = true;
+  } else if (guess > secretNumber){
+    feedback.innerHTML = "Too high! Try lower.";
+    console.log("Try Again!");
+    createHistory(guess, "high");
+  } else{
+    feedback.innerHTML = "Too low! Try higher.";
+    console.log("Try Again!");
+    createHistory(guess, "low");
   }
+
+  let difference = Math.abs(guess - secretNumber);
+
+  if (difference <= 5 && guess !== secretNumber) {
+    feedback.innerHTML += " You're very close!";
+  }
+  
+  let resetButton = document.querySelector("#reset");
+  
+  resetButton.addEventListener("click", function() {
+    secretNumber = Math.floor(Math.random() * 100) + 1;
+    console.log("New secret number:", secretNumber);
+
+    guessCount = 0;
+    countDisplay.innerHTML = "0";
+
+    feedback.innerHTML = "";
+
+    let winPanel = document.querySelector('#win-panel');
+    winPanel.classList.add("hidden");
+
+    historyUl.innerHTML = "";
+
+    gameWon = false;
+
+    console.log("New game started!");
+});
 
   // ============================================================
   // YOUR TURN! Add the other cases and features below.
