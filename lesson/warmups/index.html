@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Session 2 Warmups: Logic Practice</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Session 2 Warmups</h1>
+    <p class="instructions">Work through these exercises before building the Guessing Game. Open your browser console (DevTools) to see results!</p>
+
+    <!-- SECTION 1: Comparisons (Block 1) -->
+    <section class="exercise-section">
+      <h2>1. Comparisons</h2>
+      <p>We'll log comparison results to the console. No inputs needed here!</p>
+      <button id="run-comparisons">Run Comparisons</button>
+    </section>
+
+    <!-- SECTION 2: If/Else (Block 2) -->
+    <section class="exercise-section">
+      <h2>2. If / Else</h2>
+      <p>Is this number big or small?</p>
+      <label for="big-number">Enter a number:</label>
+      <input type="text" id="big-number" placeholder="e.g. 50">
+      <button id="check-big">Check Size</button>
+    </section>
+
+    <!-- SECTION 3: Grade Checker - THE GOTCHA (Block 3) -->
+    <section class="exercise-section">
+      <h2>3. Grade Checker (The Gotcha!)</h2>
+      <p>Enter a score 0-100 to get a letter grade.</p>
+      <label for="score">Score:</label>
+      <input type="text" id="score" placeholder="e.g. 85">
+      <button id="check-grade">Get Grade</button>
+      <div id="grade-result" class="result-box"></div>
+    </section>
+
+    <!-- SECTION 4: && and || (Block 4) -->
+    <section class="exercise-section">
+      <h2>4. Combining Conditions</h2>
+      <p>Is this number valid for our game? (must be 1-100)</p>
+      <label for="range-check">Enter a number:</label>
+      <input type="text" id="range-check" placeholder="e.g. 42">
+      <button id="check-range">Validate</button>
+      <div id="range-result" class="result-box"></div>
+    </section>
+
+    <!-- SECTION 5: Randomness (Block 5) -->
+    <section class="exercise-section">
+      <h2>5. Random Numbers</h2>
+      <p>Generate random numbers for our game!</p>
+      <button id="generate-random">Generate 1-100</button>
+      <div id="random-result" class="result-box"></div>
+    </section>
+
+    <div class="nav-link">
+      <a href="../index.html">Ready for the Guessing Game? &rarr;</a>
+    </div>
+  </main>
+
+  <script src="warmup.js"></script>
+</body>
+</html>

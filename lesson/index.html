@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Guessing Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Number Guessing Game</h1>
+    <p class="instructions">I'm thinking of a number between 1 and 100. Can you guess it?</p>
+
+    <div class="input-row">
+      <label for="guess">Your guess:</label>
+      <input type="text" id="guess" placeholder="1-100">
+      <button id="submit">Guess!</button>
+    </div>
+
+    <div id="feedback" class="feedback-box"></div>
+
+    <p class="guess-count">Guesses: <span id="count">0</span></p>
+
+    <!-- Win panel - hidden by default -->
+    <div id="win-panel" class="win-panel hidden">
+      <h2>You Got It!</h2>
+      <p>The number was <span id="answer"></span>!</p>
+      <p>It took you <span id="final-count"></span> guesses.</p>
+    </div>
+
+    <button id="reset" class="reset-button">New Game</button>
+
+    <!-- Stretch: History list -->
+    <div class="history-section">
+      <h3>Guess History</h3>
+      <ul id="history"></ul>
+    </div>
+
+    <div class="nav-link">
+      <a href="warmups/index.html">&larr; Back to Warmups</a>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
